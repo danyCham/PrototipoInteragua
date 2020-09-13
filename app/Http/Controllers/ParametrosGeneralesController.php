@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class BitacoraController extends Controller
+class ParametrosGeneralesController extends Controller
 {
     /**
      * Display a listing of the resource.

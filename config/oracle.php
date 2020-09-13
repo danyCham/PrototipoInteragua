@@ -13,6 +13,6 @@ return [
         'prefix'         => env('DB_PREFIX', ''),
         'prefix_schema'  => env('DB_SCHEMA_PREFIX', ''),
         'edition'        => env('DB_EDITION', 'ora$base'),
-        'server_version' => env('DB_SERVER_VERSION', '12g'),
+        'server_version' => env('DB_SERVER_VERSION', '12c'),
     ],
 ];
