@@ -12,7 +12,7 @@ class CronogramaMantenimiento extends Model
 
     protected $primaryKey = 'ID_CRONOGRAMA';
     
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $dateFormat = 'dd/mm/yyyy';
 }

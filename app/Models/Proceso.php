@@ -12,7 +12,7 @@ class Proceso extends Model
 
     protected $primaryKey = 'ID_PROCESO';
     
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $dateFormat = 'dd/mm/yyyy';
 }

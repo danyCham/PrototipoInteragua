@@ -12,7 +12,7 @@ class DetalleReporte extends Model
 
     protected $primaryKey = 'ID_DETALLE_REPORTE';
     
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $dateFormat = 'dd/mm/yyyy';
 }

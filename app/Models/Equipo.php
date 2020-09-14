@@ -12,7 +12,7 @@ class Equipo extends Model
 
     protected $primaryKey = 'ID_EQUIPO';
     
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $dateFormat = 'dd/mm/yyyy';
 }

@@ -12,7 +12,7 @@ class ParametrosGenerales extends Model
 
     protected $primaryKey = 'ID_PARAMETRO';
     
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $dateFormat = 'dd/mm/yyyy';
 }

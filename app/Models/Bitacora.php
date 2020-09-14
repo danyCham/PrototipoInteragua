@@ -14,5 +14,5 @@ class Bitacora extends Model
     
     protected $dateFormat = 'dd/mm/yyyy';
 
-    protected $timestamps = false;
+    public $timestamps = false;
 }

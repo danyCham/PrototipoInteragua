@@ -12,7 +12,7 @@ class PlantillaCorreo extends Model
 
     protected $primaryKey = 'ID_PLANTILLA';
     
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $dateFormat = 'dd/mm/yyyy';
 }

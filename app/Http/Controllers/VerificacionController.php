@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Verificacion;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -41,10 +42,10 @@ class VerificacionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Verificacion  $verificacion
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Verificacion $verificacion)
     {
         //
     }
@@ -52,10 +53,10 @@ class VerificacionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Verificacion  $verificacion
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Verificacion $verificacion)
     {
         //
     }
@@ -64,10 +65,10 @@ class VerificacionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Verificacion  $verificacion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Verificacion $verificacion)
     {
         //
     }
@@ -75,10 +76,10 @@ class VerificacionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Verificacion  $verificacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Verificacion $verificacion)
     {
         //
     }

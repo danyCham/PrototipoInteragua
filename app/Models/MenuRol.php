@@ -12,7 +12,7 @@ class MenuRol extends Model
 
     protected $primaryKey = 'ID_MENU_ROL';
     
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $dateFormat = 'dd/mm/yyyy';
 }

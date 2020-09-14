@@ -12,7 +12,7 @@ class Verificacion extends Model
 
     protected $primaryKey = 'ID_VERIFICA';
     
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $dateFormat = 'dd/mm/yyyy';
 }

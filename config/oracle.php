@@ -6,7 +6,7 @@ return [
         'tns'            => env('DB_TNS', ''),
         'host'           => env('DB_HOST', 'localhost'),
         'port'           => env('DB_PORT', '1521'),
-        'database'       => env('DB_DATABASE', 'lab_control_calidad'),
+        'database'       => env('DB_DATABASE', 'LABCONTROLCA'),
         'username'       => env('DB_USERNAME', 'system'),
         'password'       => env('DB_PASSWORD', '66xk_WIp'),
         'charset'        => env('DB_CHARSET', 'AL32UTF8'),

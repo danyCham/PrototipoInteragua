@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Proceso;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -41,10 +42,10 @@ class ProcesoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Proceso  $proceso
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Proceso $proceso)
     {
         //
     }
@@ -52,10 +53,10 @@ class ProcesoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Proceso  $proceso
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Proceso $proceso)
     {
         //
     }
@@ -64,10 +65,10 @@ class ProcesoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Proceso  $proceso
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Proceso $proceso)
     {
         //
     }
@@ -75,10 +76,10 @@ class ProcesoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Proceso  $proceso
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Proceso $proceso)
     {
         //
     }

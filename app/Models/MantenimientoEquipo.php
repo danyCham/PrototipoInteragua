@@ -12,7 +12,7 @@ class MantenimientoEquipo extends Model
 
     protected $primaryKey = 'ID_MANTENIMIENTO';
     
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $dateFormat = 'dd/mm/yyyy';
 }

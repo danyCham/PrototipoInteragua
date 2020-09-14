@@ -11,6 +11,5 @@ class CabeceraReporte extends Model
     protected $fillable = ['ID_CABECERA_REPORTE','TITULO','DESCRIPCION','ESTADO'];
 
     protected $primaryKey = 'ID_CABECERA_REPORTE';
-    
-    protected $timestamps = false;
+        
 }

@@ -12,7 +12,7 @@ class SubMenu extends Model
 
     protected $primaryKey = 'ID_SUB_MENU';
     
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $dateFormat = 'dd/mm/yyyy';
 }

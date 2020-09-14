@@ -12,7 +12,7 @@ class Calibracion extends Model
 
     protected $primaryKey = 'ID_CALIBRACION';
     
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $dateFormat = 'dd/mm/yyyy';
 }

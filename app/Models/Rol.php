@@ -11,8 +11,5 @@ class Rol extends Model
     protected $fillable = ['ID_ROL','NOMBRE'];
 
     protected $primaryKey = 'ID_ROL';
-    
-    protected $timestamps = false;
 
-    protected $dateFormat = 'dd/mm/yyyy';
 }
