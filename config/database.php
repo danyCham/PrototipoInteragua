@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'oracle'),
 
     /*
     |--------------------------------------------------------------------------
@@ -89,6 +89,21 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
+        ],
+
+        'oracle' => [
+            'driver'         => 'oracle',
+            'tns'            => env('DB_TNS', '(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP) (HOST = 192.168.0.101) (PORT = 1521))) (CONNECT_DATA = (SERVICE_NAME = dbprod.sasf.net)))'),
+            'host'           => env('DB_HOST', 'localhost'),
+            'port'           => env('DB_PORT', '1521'),
+            'database'       => env('DB_DATABASE', 'DBDESA'),
+            'username'       => env('DB_USERNAME', 'curso01'),
+            'password'       => env('DB_PASSWORD', 'curso01'),
+            'charset'        => env('DB_CHARSET', 'AL32UTF8'),
+            'prefix'         => env('DB_PREFIX', ''),
+            'prefix_schema'  => env('DB_SCHEMA_PREFIX', ''),
+            'edition'        => env('DB_EDITION', 'ora$base'),
+            'server_version' => env('DB_SERVER_VERSION', '12c'),
         ],
 
     ],

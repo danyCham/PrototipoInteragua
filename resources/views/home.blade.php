@@ -8,8 +8,8 @@
 
 @section('content')
     <div class="content ">
-        <div class="title m-b-md">
-            <img class="img-responsive center-block" src="vendor/adminlte/dist/img/logointeragua.png" alt="logo">
+        <div class="title text-center">
+            <img class="img-responsive center-block" style="margen:auto auto" src="vendor/adminlte/dist/img/logointeragua.png" alt="logo">
         </div>
     </div>
 @stop
