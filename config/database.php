@@ -105,7 +105,6 @@ return [
             'edition'        => env('DB_EDITION', 'ora$base'),
             'server_version' => env('DB_SERVER_VERSION', '12c'),
         ],
-
     ],
 
     /*

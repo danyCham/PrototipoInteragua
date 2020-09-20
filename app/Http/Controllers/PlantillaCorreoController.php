@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bitacora;
+use App\Models\PlantillaCorreo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class BitacoraController extends Controller
+class PlantillaCorreoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +42,10 @@ class BitacoraController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Bitacora  $bitacora
+     * @param  \App\Models\PlantillaCorreo  $plantillaCorreo
      * @return \Illuminate\Http\Response
      */
-    public function show(Bitacora $bitacora)
+    public function show(PlantillaCorreo $plantillaCorreo)
     {
         //
     }
@@ -53,10 +53,10 @@ class BitacoraController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Bitacora  $bitacora
+     * @param  \App\Models\PlantillaCorreo  $plantillaCorreo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bitacora $bitacora)
+    public function edit(PlantillaCorreo $plantillaCorreo)
     {
         //
     }
@@ -65,10 +65,10 @@ class BitacoraController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Bitacora  $bitacora
+     * @param  \App\Models\PlantillaCorreo  $plantillaCorreo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bitacora $bitacora)
+    public function update(Request $request, PlantillaCorreo $plantillaCorreo)
     {
         //
     }
@@ -76,10 +76,10 @@ class BitacoraController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Bitacora  $bitacora
+     * @param  \App\Models\PlantillaCorreo  $plantillaCorreo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bitacora $bitacora)
+    public function destroy(PlantillaCorreo $plantillaCorreo)
     {
         //
     }
