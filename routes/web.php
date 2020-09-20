@@ -23,4 +23,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/user', 'UsuarioController@index')->name('usuario.consultar');
 
 Route::get('login/{driver}','Auth\LoginController@redirectToProvider');
-Route::get('login/{driver}/callback','Auth\LoginController@handleProviderCallback'); 
+Route::get('login/{driver}/callback','Auth\LoginController@handleProviderCallback');

@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Laravel\Socialite\Facades\Socialite;
 
 use App\Models\User;
-use App\Models\SocialProfile;
+use App\Models\GestionUsuario;
 
 use Illuminate\Http\Request;
 
@@ -73,31 +73,23 @@ class LoginController extends Controller
         $userSocialite = Socialite::driver($driver)->user();
        // dd($userSocialite);
         
-        $social_profile = SocialProfile::where('social_id', $userSocialite->getId())
+        $usuario = User::where('social_id', $userSocialite->getId())
                                         ->where('social_name', $driver)->first();
 
+        if(!$usuario){
 
-        if(!$social_profile){
-
-            $user = User::where('email', $userSocialite->getEmail())->first();
-
-            if(!$user){
-                $user = User::create([
-                    'name' => $userSocialite->getName(),
-                    'email'=> $userSocialite->getEmail(),
-                ]);
-            }
-
-
-            $social_profile = SocialProfile::create([
-                'user_id' => $user->id,
+            $usuario = User::create([
+                'nombre' => $userSocialite->getName(),
+                'email'=> $userSocialite->getEmail(),
+                'id_rol' => '2',
                 'social_id' => $userSocialite->getId(),
                 'social_name' => $driver,
-                'social_avatar'  => $userSocialite->getAvatar()
+                'imagen'  => $userSocialite->getAvatar(),
             ]);
+
         }
 
-        auth()->login($social_profile->user);
+        auth()->login($usuario);
 
         return redirect()->route('home');
     }
