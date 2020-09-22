@@ -24,3 +24,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('login/{driver}','Auth\LoginController@redirectToProvider');
 Route::get('login/{driver}/callback','Auth\LoginController@handleProviderCallback');
+
+Route::get('reports/reportTemplate',function(){
+    return view('reports.reportTemplate');
+});
+Route::get('/imprimir','FileController@PDFGenerate')->name('pdfGenerate');

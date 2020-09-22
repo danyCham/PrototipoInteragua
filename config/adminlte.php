@@ -258,6 +258,22 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        ['header' => 'Reportes'],
+        [
+            'text' => 'Reporte 1',
+            'url' => 'reports/reportTemplate',
+            'icon' => 'fas fa-fw fa-file-alt'
+        ],
+        [
+            'text' => 'Reporte 2',
+            'url' => '',
+            'icon' => 'fas fa-fw fa-file-alt'
+        ],
+        [
+            'text' => 'Reporte 3',
+            'url' => '',
+            'icon' => 'fas fa-fw fa-file-alt'
+        ],
         /*[
             'text' => 'Usarios',
             'route'  => 'usuario.consultar',            
