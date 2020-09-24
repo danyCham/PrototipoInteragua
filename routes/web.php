@@ -28,4 +28,5 @@ Route::get('login/{driver}/callback','Auth\LoginController@handleProviderCallbac
 Route::get('reports/reportTemplate',function(){
     return view('reports.reportTemplate');
 });
-Route::get('/imprimir','FileController@PDFGenerate')->name('pdfGenerate');
+Route::get('/pdfGenerateFile','FileController@PDFGenerate')->name('pdfGenerate');
+Route::get('/csvGenerateFile','FileController@CSVGenerate')->name('csvGenerate');

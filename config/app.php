@@ -178,6 +178,8 @@ return [
         Yajra\Oci8\Oci8ServiceProvider::class,
         //PDF
         Barryvdh\DomPDF\ServiceProvider::class,
+        //EXCEL CSV
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ],
 
     /*
@@ -230,6 +232,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 

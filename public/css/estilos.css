@@ -18,6 +18,7 @@ table#table-header {
 
 table#table-header tr td {
     border: 1px solid black;
+    padding: 5px;
 }
 
 img {
