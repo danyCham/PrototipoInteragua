@@ -28,7 +28,7 @@ class FileController extends Controller
         //dd($TBL_CATALOGO_CABECERA);
 
         //TABLA DE INFORMACION 
-        $TBL_CRTL_ACT_EQUIPO = \DB::table('TBL_CRTL_ACT_EQUIPO')->get();
+        $TBL_CRTL_ACT_EQUIPO = \DB::table('TBL_CRTL_ACT_EQUIPO')->where('estado_act','=','PENDIENTE')->get();
 
         
 
@@ -43,5 +43,18 @@ class FileController extends Controller
 
     public function CSVGenerate(){
         return \Excel::download(new EXPORT_CRONO,'REP_CSV_FORMAT_EQUIPOS_TEST.csv');
+    }
+
+    public function ReportPageController($rep_type){
+
+        //TABLA DE INFORMACION
+        if($rep_type == 'epm'){
+            $TBL_CRTL_ACT_EQUIPO = \DB::table('TBL_CRTL_ACT_EQUIPO')->where('estado_act','=','PENDIENTE')->paginate(10);
+        }else{
+            $TBL_CRTL_ACT_EQUIPO = \DB::table('TBL_CRTL_ACT_EQUIPO')->paginate(10);
+        }
+        
+
+        return view('reports.reportTemplate',['treport'=>$rep_type,'TBL_CRTL_ACT_EQUIPO'=>$TBL_CRTL_ACT_EQUIPO]);
     }
 }
