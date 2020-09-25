@@ -260,18 +260,18 @@ return [
         ],
         ['header' => 'Reportes'],
         [
-            'text' => 'Reporte 1',
-            'url' => 'reports/reportTemplate',
+            'text' => 'Eq. Pendientes de Mant.',
+            'url' => 'reports/reportTemplate/epm',
             'icon' => 'fas fa-fw fa-file-alt'
         ],
         [
-            'text' => 'Reporte 2',
-            'url' => '',
+            'text' => 'Eq. Planificados por Per.',
+            'url' => 'reports/reportTemplate/epmp',
             'icon' => 'fas fa-fw fa-file-alt'
         ],
         [
-            'text' => 'Reporte 3',
-            'url' => '',
+            'text' => 'Eq. Periodo Vencido',
+            'url' => 'reports/reportTemplate/epmv',
             'icon' => 'fas fa-fw fa-file-alt'
         ],
         /*[

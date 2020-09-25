@@ -25,8 +25,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('login/{driver}','Auth\LoginController@redirectToProvider');
 Route::get('login/{driver}/callback','Auth\LoginController@handleProviderCallback');
 
-Route::get('reports/reportTemplate',function(){
-    return view('reports.reportTemplate');
+Route::get('reports/reportTemplate/{rep_type}',function($rep_type){
+    return view('reports.reportTemplate',['treport'=>$rep_type]);
 });
-Route::get('/pdfGenerateFile','FileController@PDFGenerate')->name('pdfGenerate');
+Route::get('/pdfGenerateFile/{tipo_reporte}','FileController@PDFGenerate')->name('pdfGenerate');
 Route::get('/csvGenerateFile','FileController@CSVGenerate')->name('csvGenerate');
