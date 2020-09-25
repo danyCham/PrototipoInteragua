@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\EXPORT_CRONO;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class FileController extends Controller
 {
@@ -46,12 +47,16 @@ class FileController extends Controller
     }
 
     public function ReportPageController($rep_type){
-
+        $fecha_act = Carbon::today(); 
         //TABLA DE INFORMACION
         if($rep_type == 'epm'){
-            $TBL_CRTL_ACT_EQUIPO = \DB::table('TBL_CRTL_ACT_EQUIPO')->where('estado_act','=','PENDIENTE')->paginate(10);
-        }else{
-            $TBL_CRTL_ACT_EQUIPO = \DB::table('TBL_CRTL_ACT_EQUIPO')->paginate(10);
+            $TBL_CRTL_ACT_EQUIPO = \DB::table('TBL_CRTL_ACT_EQUIPO')->where('estado_act','=','PENDIENTE')->get();
+        }elseif($rep_type == 'epmp'){
+            $TBL_CRTL_ACT_EQUIPO = \DB::table('TBL_CRTL_ACT_EQUIPO')->where('fecha_act_proxima','>',$fecha_act)
+            ->where('estado_act','=','PENDIENTE')
+            ->get();
+        }elseif($rep_type == 'epmv'){
+            $TBL_CRTL_ACT_EQUIPO = \DB::table('TBL_CRTL_ACT_EQUIPO')->where('estado_act','=','VENCIDO')->get();
         }
         
 
