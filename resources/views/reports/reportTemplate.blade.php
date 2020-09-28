@@ -21,9 +21,9 @@
     @endif
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center">
-            <form action="">
+            <form action="" class="form-group">
                 @if($treport != 'epm')
-                    
+                    <input type="text" class="form-control">
                 @endif
             </form>
             <div>
@@ -40,26 +40,25 @@
             <table id="reportUno">
                 <thead class="text-center">
                     <tr>
-                        <th rowspan="2">Fecha</th>
-                        <th rowspan="2">Hora</th>
-                        <th rowspan="2">Objeto/C&oacute;digo de ensayo</th>
-                        <th colspan="2">Agua Potable ml/L</th>
-                        <th rowspan="2">Laboratorista</th>
-                    </tr>
-                    <tr>
-                        <th>L1</th>
-                        <th>L2</th>
+                        <th>Codigo Equipo</th>
+                        <th>Nombre Equipo</th>
+                        <th>Ubicación</th>
+                        <th>Fecha Actividad</th>
+                        <th>Fecha Proxima</th>
+                        <th>Usuario Resp.</th>
+                        <th>Detalle Act.</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($TBL_CRTL_ACT_EQUIPO as $data)
+                    @foreach($consulta as $data)
                         <tr>
-                            <th>{{$data -> fecha_reg}}</th>
-                            <th>Hora</th>
-                            <th>{{$data -> id_cronograma}}</th>
-                            <th>200ml</th>
-                            <th>150ml</th>
-                            <th>{{$data -> usuario_resp}}</th>
+                            <td>{{$data -> codigo_equipo}}</td>
+                            <td>{{$data -> nombre}}</td>
+                            <td>{{$data -> direccion}}</td>
+                            <td>{{$data -> fecha_actividad}}</td>
+                            <td>{{$data -> fecha_act_proxima}}</td>
+                            <td>{{$data -> usuario_resp}}</td>
+                            <td>{{$data -> detalle}}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -127,12 +126,7 @@
                     "sortAscending":  ": activate to sort column ascending",
                     "sortDescending": ": activate to sort column descending"
                 }
-            },
-   
-            buttons: [
-                'colvis',
-                'excel'
-            ]
+            }
         });
     });
 </script>

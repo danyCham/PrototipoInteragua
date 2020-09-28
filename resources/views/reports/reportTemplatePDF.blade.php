@@ -40,31 +40,25 @@
 
 <table id="table-content-info">
   <tr>
-    <th>ACTIVIDAD</th>
-    <th>DESCRIPCION</th>
-    <th>FECHA ACTIVIDAD</th>
-    <th>USUARIO RESPONSABLE</th>
-    <th>CRONOGRAMA</th>
+  <th>Codigo Equipo</th>
+    <th>Nombre Equipo</th>
+    <th>Ubicación</th>
+    <th>Fecha Actividad</th>
+    <th>Fecha Proxima</th>
+    <th>Usuario Resp.</th>
+    <th>Detalle Act.</th>
   </tr>
  
-  @foreach ($TBL_CRTL_ACT_EQUIPO as $data)
-    <tr>
-      <td>
-        {!!$data -> id_actividad!!}
-      </td>
-      <td>
-        {!!$data -> descripcion!!}
-      </td>
-      <td>
-        {!!$data -> fecha_actividad!!}
-      </td>
-      <td>
-        {!!$data -> usuario_resp!!}
-      </td>
-      <td>
-        {!!$data -> id_cronograma!!}
-      </td>
-    </tr>
+  @foreach ($consulta as $data)
+  <tr>
+    <td>{{$data -> codigo_equipo}}</td>
+    <td>{{$data -> nombre}}</td>
+    <td>{{$data -> direccion}}</td>
+    <td>{{$data -> fecha_actividad}}</td>
+    <td>{{$data -> fecha_act_proxima}}</td>
+    <td>{{$data -> usuario_resp}}</td>
+    <td>{{$data -> detalle}}</td>
+  </tr>
   @endforeach
     
 </table>
