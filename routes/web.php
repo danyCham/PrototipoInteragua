@@ -27,4 +27,6 @@ Route::get('login/{driver}/callback','Auth\LoginController@handleProviderCallbac
 
 Route::get('reports/reportTemplate/{rep_type}','FileController@ReportPageController');
 Route::get('/pdfGenerateFile/{tipo_reporte}','FileController@PDFGenerate')->name('pdfGenerate');
-Route::get('/csvGenerateFile','FileController@CSVGenerate')->name('csvGenerate');
+Route::get('/csvGenerateFile/{tipo_reporte}','FileController@CSVGenerate')->name('csvGenerate');
+
+Route::post('reports/reportTemplate/{rep_type}','FileController@ReportPageFilteredController')->name('rutaPrueba');
