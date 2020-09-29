@@ -55,7 +55,9 @@ class FileController extends Controller
         }else if($tipo_reporte == 'epmv'){
             $nombre_archivo = 'REP_EPMV_TEST';
             $TBL_CATALOGO_CABECERA = $TBL_CATALOGO_CABECERA -> where('NOMBRE_CATALOGO','=','TITULO_REPORTE_EPMV')->get();
-            $query = $query->where('tbl_crtl_act_equipo.estado_act','PENDIENTE')->get();
+            $query = $query->where('tbl_crtl_act_equipo.estado_act','PENDIENTE')
+                           ->whereBetween('tbl_crtl_act_equipo.fecha_act_proxima',[$new_fecha_desde,$new_fecha_hasta])
+                           ->get();
         }
  
         $pdf = \PDF::loadView('reports/reportTemplatePDF', ['consulta'=>$query , 
@@ -67,9 +69,9 @@ class FileController extends Controller
         return $pdf->download($nombre_archivo . '.pdf'); 
     }
 
-    public function CSVGenerate($tipo_reporte){
+    public function CSVGenerate($tipo_reporte,$string_info){
         $queryExport = new EXPORT_CRONO();
-        $queryExport->setTipoReporte($tipo_reporte);
+        $queryExport->setTipoReporte($tipo_reporte,$string_info);
         $filename = '';
         $fecha_act = Carbon::today();
         $fecha_act_prox_pre = Carbon::today();
@@ -140,7 +142,9 @@ class FileController extends Controller
                            ->get();
            // dd($query);
         }elseif($rep_type == 'epmv'){
-            $query = $query->where('tbl_crtl_act_equipo.estado_act','PENDIENTE')->get();
+            $query = $query->where('tbl_crtl_act_equipo.estado_act','PENDIENTE')
+                           ->whereBetween('tbl_crtl_act_equipo.fecha_act_proxima',[$fecha_desde,$fecha_hasta])
+                           ->get();
         }
         
 
