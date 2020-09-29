@@ -11,6 +11,10 @@ class FileController extends Controller
     private $fecha_desde;
     private $fecha_hasta;
 
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function PDFGenerate($tipo_reporte){
         $fecha_act = Carbon::today();
         $fecha_act_prox_pre = Carbon::today();
@@ -87,16 +91,21 @@ class FileController extends Controller
         }elseif($rep_type == 'epmp'){
             $query = $query->where('tbl_crtl_act_equipo.estado_act','PENDIENTE')
                            ->get();
-           // dd($query);
+                           
         }elseif($rep_type == 'epmv'){
             $query = $query->where('tbl_crtl_act_equipo.estado_act','PENDIENTE')->get();
         }
         
 
-        return view('reports.reportTemplate',['treport'=>$rep_type,'consulta'=>$query]);
+        return view('reports.reportTemplate',['treport'=>$rep_type,'consulta'=>$query,'filtro_aplicado'=>0,
+        'dd'=>'','md'=>'','ad'=>'',
+        'dh'=>'','mh'=>'','ah'=>'',
+        'op'=>'']);
     }
 
     public function ReportPageFilteredController(Request $request, $rep_type){
+
+        $opcion_seleccionada = $request->select;
         
         $fecha_desde_sp = explode('-',$request->fecha_desde);
         $fecha_hasta_sp = explode('-',$request->fecha_hasta);
@@ -122,6 +131,11 @@ class FileController extends Controller
         }
         
 
-        return view('reports.reportTemplate',['treport'=>$rep_type,'consulta'=>$query]);
+        return view('reports.reportTemplate',['treport'=>$rep_type,
+                                              'consulta'=>$query,
+                                              'filtro_aplicado'=>1,
+                                              'ad'=>$fecha_desde_sp[0],'md'=>$fecha_desde_sp[1],'dd'=>$fecha_desde_sp[2],
+                                              'ah'=>$fecha_hasta_sp[0],'mh'=>$fecha_hasta_sp[1],'dh'=>$fecha_hasta_sp[2],
+                                              'op'=>$opcion_seleccionada]);
     }
 }
