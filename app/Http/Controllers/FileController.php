@@ -15,10 +15,23 @@ class FileController extends Controller
         $this->middleware('auth');
     }
 
-    public function PDFGenerate($tipo_reporte){
+    public function PDFGenerate($tipo_reporte,$string_info){ 
         $fecha_act = Carbon::today();
         $fecha_act_prox_pre = Carbon::today();
         $nombre_archivo = '';
+
+        if($tipo_reporte != 'epm'){
+            //descomposicion de parametros
+            $array_values = explode(';',$string_info);
+            $fecha_desde = explode('-',$array_values[0]);
+            $fecha_hasta = explode('-',$array_values[1]);
+            $optSel = $array_values[2];
+
+            //fechas de filtro para reportes epmp y epmv
+            $new_fecha_desde = Carbon::create($fecha_desde[2],$fecha_desde[1],$fecha_desde[0]);
+            $new_fecha_hasta = Carbon::create($fecha_hasta[2],$fecha_hasta[1],$fecha_hasta[0]);
+        }
+
         $query = \DB::table('TBL_CRTL_ACT_EQUIPO')
                                       ->join('tbl_cronograma_mantenimiento','TBL_CRTL_ACT_EQUIPO.id_cronograma','=','tbl_cronograma_mantenimiento.id_cronograma')
                                       ->join('tbl_equipo','tbl_cronograma_mantenimiento.id_equipo','=','tbl_equipo.id_equipo')
@@ -37,7 +50,7 @@ class FileController extends Controller
             $nombre_archivo = 'REP_EPMP_TEST';
             $TBL_CATALOGO_CABECERA = $TBL_CATALOGO_CABECERA -> where('NOMBRE_CATALOGO','=','TITULO_REPORTE_EPMP')->get();
             $query = $query->where('tbl_crtl_act_equipo.estado_act','PENDIENTE')
-                           ->whereBetween('tbl_crtl_act_equipo.fecha_act_proxima',[$fecha_act,$fecha_act_prox_pre->addDays(7)])
+                           ->whereBetween('tbl_crtl_act_equipo.fecha_act_proxima',[$new_fecha_desde,$new_fecha_hasta])
                            ->get();
         }else if($tipo_reporte == 'epmv'){
             $nombre_archivo = 'REP_EPMV_TEST';
